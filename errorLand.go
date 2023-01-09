@@ -18,6 +18,11 @@ func(el *errorLand) AppendError(err error) *errorLand {
 	return el.AppendString(err.Error())
 }
 
+func(el *errorLand) RemoveIndex(index int) *errorLand {
+	el.Errors = append(el.Errors[:index], el.Errors[index+1:]...)
+	return el
+}
+
 func(el *errorLand) GetCount() int {
 	return len(el.Errors)
 }
