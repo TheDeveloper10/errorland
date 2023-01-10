@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_1_ErrorLand(t *testing.T) {
+func Test_1_Land(t *testing.T) {
 	errs := NewLand()
 
 	if errs.GetCount() != 0 {
@@ -13,7 +13,7 @@ func Test_1_ErrorLand(t *testing.T) {
 	}
 }
 
-func Test_2_ErrorLand(t *testing.T) {
+func Test_2_Land(t *testing.T) {
 	errs := NewLandFromString("aaa bbb ccc")
 
 	if errs.GetCount() != 1 {
@@ -23,7 +23,7 @@ func Test_2_ErrorLand(t *testing.T) {
 	}
 }
 
-func Test_3_ErrorLand(t *testing.T) {
+func Test_3_Land(t *testing.T) {
 	errs := NewLandFromError(errors.New("aaa ccc bbb"))
 
 	if errs.GetCount() != 1 {
@@ -33,7 +33,7 @@ func Test_3_ErrorLand(t *testing.T) {
 	}
 }
 
-func Test_4_ErrorLand(t *testing.T) {
+func Test_4_Land(t *testing.T) {
 	errs1 := NewLandFromError(errors.New("a"))
 	errs2 := NewLandFromString("b")
 
@@ -48,7 +48,7 @@ func Test_4_ErrorLand(t *testing.T) {
 	}
 }
 
-func Test_5_ErrorLand(t *testing.T) {
+func Test_5_Land(t *testing.T) {
 	errs := NewLand()
 
 	errs.AppendError(errors.New("a"))
@@ -62,7 +62,7 @@ func Test_5_ErrorLand(t *testing.T) {
 	}
 }
 
-func Test_6_ErrorLand(t *testing.T) {
+func Test_6_Land(t *testing.T) {
 	errs := NewLand()
 
 	errs.AppendString("a")
@@ -76,7 +76,7 @@ func Test_6_ErrorLand(t *testing.T) {
 	}
 }
 
-func Test_7_ErrorLand(t *testing.T) {
+func Test_7_Land(t *testing.T) {
 	errs := NewLand()
 
 	errs.AppendString("1")

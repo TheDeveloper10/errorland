@@ -1,28 +1,28 @@
 package errorland
 
-type errorLand struct {
+type Land struct {
 	Errors []string `json:"errors"`
 }
 
-func(el *errorLand) Merge(errs *errorLand) *errorLand {
+func(el *Land) Merge(errs *Land) *Land {
 	el.Errors = append(el.Errors, (errs.Errors)...)
 	return el
 }
 
-func(el *errorLand) AppendString(errMsg string) *errorLand {
+func(el *Land) AppendString(errMsg string) *Land {
 	el.Errors = append(el.Errors, errMsg)
 	return el
 }
 
-func(el *errorLand) AppendError(err error) *errorLand {
+func(el *Land) AppendError(err error) *Land {
 	return el.AppendString(err.Error())
 }
 
-func(el *errorLand) RemoveIndex(index int) *errorLand {
+func(el *Land) RemoveIndex(index int) *Land {
 	el.Errors = append(el.Errors[:index], el.Errors[index+1:]...)
 	return el
 }
 
-func(el *errorLand) GetCount() int {
+func(el *Land) GetCount() int {
 	return len(el.Errors)
 }
