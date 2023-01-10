@@ -75,3 +75,24 @@ func Test_6_ErrorLand(t *testing.T) {
 		t.Error("Content after append is wrong")
 	}
 }
+
+func Test_7_ErrorLand(t *testing.T) {
+	errs := NewLand()
+
+	errs.AppendString("1")
+	errs.AppendError(errors.New("2"))
+	errs.AppendString("3")
+	errs.AppendError(errors.New("4"))
+	errs.AppendString("5")
+	errs.AppendError(errors.New("6"))
+
+	errs.RemoveIndex(1)
+	errs.RemoveIndex(2)
+	errs.RemoveIndex(2)
+
+	if errs.GetCount() != 3 {
+		t.Error("Remove failed")
+	} else if errs.Errors[0] != "1" || errs.Errors[1] != "3" || errs.Errors[2] != "6" {
+		t.Error("Remove failed: wrong items")
+	}
+}
