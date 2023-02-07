@@ -6,4 +6,5 @@ var (
 
 	IntMinErrMsg = "'%s' must be at least %d"
 	IntMaxErrMsg = "'%s' must be at most %d"
+	StrToInt64ErrMsg = "'%s' must be an integer"
 )

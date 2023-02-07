@@ -1,6 +1,10 @@
 package errorland
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+	"strconv"
+)
 
 func IntMinMax(in int, name string, min int, max int) error {
 	if in < min {
@@ -10,4 +14,13 @@ func IntMinMax(in int, name string, min int, max int) error {
 	}
 
 	return nil
+}
+
+func StrToInt64(in string, name string) (int64, error) {
+	res, err := strconv.ParseInt(in, 10, 64)
+	if err != nil {
+		return 0, fmt.Errorf(StrToInt64ErrMsg, name)
+	}
+
+	return res, nil
 }
